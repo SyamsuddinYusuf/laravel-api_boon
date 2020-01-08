@@ -15,7 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::group(['pl'], function() {
+    Route::get('/headerpl/{idpl}', 'HeaderPlController@index');
+});
+
+Route::group(['detailpl'], function() {
+    Route::get('/detailpl/{idpl}', 'DetailPlController@index');
+});
+
+//json
+Route::group(['data_pl'], function() {
     Route::get('/pl/{idpl}', 'PLController@index');
+    Route::get('/harga/{idpl}', 'HargaController@index');
+    Route::get('/detail/{idpl}', 'DetailController@index');
 });
